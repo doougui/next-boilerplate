@@ -1,11 +1,13 @@
-// import App from "next/app";
-import type { AppProps /*, AppContext */ } from 'next/app'
+import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import { ThemeProvider } from 'styled-components'
 import GlobalStyles from 'styles/global'
+import theme from 'styles/theme'
+import NextNProgress from 'nextjs-progressbar'
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Head>
         <title>React Avançado - Boilerplate</title>
         <link rel="shortcut icon" href="/img/icon-512.png" />
@@ -17,8 +19,15 @@ function App({ Component, pageProps }: AppProps) {
         />
       </Head>
       <GlobalStyles />
+      <NextNProgress
+        color="#FFF"
+        startPosition={0.3}
+        stopDelayMs={200}
+        height={5}
+        showOnShallow={true}
+      />
       <Component {...pageProps} />
-    </>
+    </ThemeProvider>
   )
 }
 
