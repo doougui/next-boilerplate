@@ -1,6 +1,6 @@
 import * as S from './styles';
 
-function Main({
+export function Main({
   title = 'Next.js Boilerplate',
   description = 'Initial boilerplate for Next.js with TypeScript projects',
 }) {
@@ -15,5 +15,3 @@ function Main({
     </S.Wrapper>
   );
 }
-
-export default Main;

@@ -1,6 +1,6 @@
 import { render, screen } from 'utils/tests';
 
-import Main from '.';
+import { Main } from '.';
 
 describe('<Main />', () => {
   it('should render the heading', () => {
