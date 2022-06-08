@@ -1,7 +1,7 @@
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from 'styles/global';
 import * as NextImage from "next/image";
-import theme from 'styles/theme';
+import theme from 'styles/themes/default';
 
 const OriginalNextImage = NextImage.default;
 
@@ -12,15 +12,15 @@ Object.defineProperty(NextImage, "default", {
 
 export const parameters = {
   backgrounds: {
-    default: 'light',
+    default: 'dark',
     values: [
       {
         name: 'light',
-        value: theme.colors.lightBg,
+        value: theme.colors.mainBg,
       },
       {
         name: 'dark',
-        value: theme.colors.mainBg,
+        value: theme.colors.lightBg,
       },
     ],
   },

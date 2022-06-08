@@ -1,16 +1,20 @@
-import type { AppProps } from 'next/app'
-import Head from 'next/head'
-import { ThemeProvider } from 'styled-components'
-import GlobalStyles from 'styles/global'
-import theme from 'styles/theme'
-import NextNProgress from 'nextjs-progressbar'
+import type { AppProps } from 'next/app';
+import Head from 'next/head';
+import { ThemeProvider } from 'styled-components';
+import GlobalStyles from 'styles/global';
+import NextNProgress from 'nextjs-progressbar';
+import light from 'styles/themes/light';
+import dark from 'styles/themes/dark';
+import { useDarkMode } from 'hooks/shared/useDarkMode';
 
 function App({ Component, pageProps }: AppProps) {
+  const { isDarkMode } = useDarkMode();
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={isDarkMode ? dark : light}>
       <Head>
         <title>Welcome | Next Boilerplate</title>
-        <link rel="shortcut icon" href="/img/icon-512.png" />
+        <link rel="icon" href="/img/icon-512.png" />
         <link rel="apple-touch-icon" href="/img/icon-192.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta
@@ -20,7 +24,7 @@ function App({ Component, pageProps }: AppProps) {
       </Head>
       <GlobalStyles />
       <NextNProgress
-        color="#FFF"
+        color="#F231A5"
         startPosition={0.3}
         stopDelayMs={200}
         height={5}
@@ -28,7 +32,7 @@ function App({ Component, pageProps }: AppProps) {
       />
       <Component {...pageProps} />
     </ThemeProvider>
-  )
+  );
 }
 
 // Only uncomment this method if you have blocking data requirements for
@@ -43,4 +47,4 @@ function App({ Component, pageProps }: AppProps) {
 //   return { ...appProps }
 // }
 
-export default App
+export default App;

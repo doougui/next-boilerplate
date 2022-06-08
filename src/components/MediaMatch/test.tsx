@@ -1,10 +1,10 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react';
 
-import MediaMatch from '.'
+import MediaMatch from '.';
 
 describe('<MediaMatch />', () => {
-  let desktopHeading: Element
-  let mobileHeading: Element
+  let desktopHeading: Element;
+  let mobileHeading: Element;
 
   // hook tests
   beforeEach(() => {
@@ -16,25 +16,25 @@ describe('<MediaMatch />', () => {
         <MediaMatch lessThan="medium">
           <h1 data-testid="mobile">Mobile</h1>
         </MediaMatch>
-      </>
-    )
+      </>,
+    );
 
-    desktopHeading = screen.getByTestId('desktop')
-    mobileHeading = screen.getByTestId('mobile')
-  })
+    desktopHeading = screen.getByTestId('desktop');
+    mobileHeading = screen.getByTestId('mobile');
+  });
 
-  it('should be hidden if no media query is passewd', () => {
-    expect(desktopHeading.parentElement).toHaveStyleRule('display', 'none')
-    expect(mobileHeading.parentElement).toHaveStyleRule('display', 'none')
-  })
+  it('should be hidden if no media query is passed', () => {
+    expect(desktopHeading.parentElement).toHaveStyleRule('display', 'none');
+    expect(mobileHeading.parentElement).toHaveStyleRule('display', 'none');
+  });
 
   it('should show or hide based on the media passed', () => {
     expect(desktopHeading.parentElement).toHaveStyleRule('display', 'block', {
-      media: '(min-width: 768px)'
-    })
+      media: '(min-width: 768px)',
+    });
 
     expect(mobileHeading.parentElement).toHaveStyleRule('display', 'block', {
-      media: '(max-width: 768px)'
-    })
-  })
-})
+      media: '(max-width: 768px)',
+    });
+  });
+});

@@ -1,20 +1,20 @@
-import theme from 'styles/theme'
-import { render } from 'utils/tests'
+import theme from 'styles/themes/default';
+import { render } from 'utils/tests';
 
-import { Container } from '.'
+import { Container } from '.';
 
 describe('<Container />', () => {
   it('should render the heading', () => {
     const { container } = render(
       <Container>
         <span>Won Games</span>
-      </Container>
-    )
+      </Container>,
+    );
 
     expect(container.firstChild).toHaveStyleRule(
       'max-width',
-      theme.grid.container
-    )
+      theme.grid.container,
+    );
 
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c0 {
@@ -33,6 +33,6 @@ describe('<Container />', () => {
           Won Games
         </span>
       </div>
-    `)
-  })
-})
+    `);
+  });
+});

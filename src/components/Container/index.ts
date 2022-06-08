@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   ${({ theme }) => css`
@@ -9,4 +9,4 @@ export const Container = styled.div`
     padding-left: calc(${theme.grid.gutter} / 2);
     padding-right: calc(${theme.grid.gutter} / 2);
   `}
-`
+`;
