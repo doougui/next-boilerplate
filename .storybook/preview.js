@@ -1,11 +1,13 @@
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from 'styles/global';
-import * as NextImage from "next/image";
+import * as NextImage from 'next/image';
 import theme from 'styles/themes/default';
 
 const OriginalNextImage = NextImage.default;
 
-Object.defineProperty(NextImage, "default", {
+/* eslint no-import-assign: "off" */
+/* eslint react/jsx-filename-extension: "off" */
+Object.defineProperty(NextImage, 'default', {
   configurable: true,
   value: (props) => <OriginalNextImage {...props} unoptimized />,
 });
@@ -33,6 +35,6 @@ export const decorators = [
         <GlobalStyles removeBg />
         <Story />
       </ThemeProvider>
-    )
-  }
-]
+    );
+  },
+];
